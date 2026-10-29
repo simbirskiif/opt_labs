@@ -10,4 +10,8 @@
     <AssemblyName>SessionAccounting</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Unity.Container" Version="5.11.1" />
+  </ItemGroup>
+
 </Project>

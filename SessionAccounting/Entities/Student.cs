@@ -1,28 +1,46 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using SessionAccounting.Entities.Enums;
 
 namespace SessionAccounting.Entities;
 
 public class Student
 {
+    protected Student()
+    {
+    }
+
+    [Key]
     public int Id { get; private set; }
 
+    [Required]
     public int GroupId { get; private set; }
 
+    [Required]
+    [MaxLength(20)]
     public string RecordBookNumber { get; private set; } = string.Empty;
 
+    [Required]
+    [MaxLength(50)]
     public string LastName { get; private set; } = string.Empty;
 
+    [Required]
+    [MaxLength(50)]
     public string FirstName { get; private set; } = string.Empty;
 
+    [MaxLength(50)]
     public string MiddleName { get; private set; } = string.Empty;
 
     public StudentSocialStatus SocialStatus { get; private set; }
 
+    [Column(TypeName = "numeric(3,2)")]
     public decimal AverageGrade { get; private set; }
 
+    [Column(TypeName = "numeric(10,2)")]
     public decimal ScholarshipAmount { get; private set; }
 
+    [Column(TypeName = "numeric(10,2)")]
     public decimal DormitoryPayment { get; private set; }
 
     [Browsable(false)]

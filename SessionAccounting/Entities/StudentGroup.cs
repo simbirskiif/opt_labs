@@ -1,11 +1,21 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SessionAccounting.Entities;
 
 public class StudentGroup
 {
+    protected StudentGroup()
+    {
+    }
+
+    [Key]
     public int Id { get; private set; }
 
+    [Required]
     public int DepartmentId { get; private set; }
 
+    [Required]
+    [MaxLength(20)]
     public string Number { get; private set; } = string.Empty;
 
     public int Course { get; private set; }
